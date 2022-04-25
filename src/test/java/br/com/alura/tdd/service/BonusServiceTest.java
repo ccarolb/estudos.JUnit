@@ -21,4 +21,17 @@ public class BonusServiceTest {
 
     }
 
+    @Test //Cenário 1: salario < 10000 => bônus = 10% do salário
+    public void bonusDeveSerZeroParaSalarioMenorQueDezMil() {
+        BonusService bonusService = new BonusService();
+        Funcionario funcionario = new Funcionario("Carol", LocalDate.now(), new BigDecimal(2000));
+
+        BigDecimal bonus = bonusService.calcularBonus(funcionario);
+
+        assertEquals(new BigDecimal(200), bonus);
+
+
+    }
+
+
 }
