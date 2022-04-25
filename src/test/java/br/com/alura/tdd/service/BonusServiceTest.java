@@ -33,5 +33,14 @@ public class BonusServiceTest {
 
     }
 
+    @Test //Cenário 3: salario = 10000 => bônus = 10% do salário => 1000;
+    public void bonusDeveSerMilParaSalarioIgualADezMil() {
+        BonusService bonusService = new BonusService();
+
+        BigDecimal bonus = bonusService.calcularBonus(new Funcionario("Carol", LocalDate.now(), new BigDecimal(10000)));
+
+        assertEquals(new BigDecimal(1000), bonus);
+    }
+
 
 }
